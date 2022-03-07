@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block mainContent %}
+<div>
+    <h2>Topics for {{ subject }}</h2>
+    {% if session['username'] %}
+        {% for topic in session['Topics'] %}
+                <p><a href="/Videos?topic={{topic}}">{{topic}}</a></p>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Lizard Spock</title>
+
+    <!-- style sheets -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <style>
+
+        body {
+            background-color:aliceblue;
+        }
+
+        th {
+            color: darkcyan;
+            font-weight: bold;
+            font-size: large;
+        }
+
+        .jumbotron{
+            color: darkcyan;
+            margin: fill;
+
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row"> <!-- for the flash messages -->
+        <div class=" col">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <main>
+        <div class="row">
+            <div class="col">
+                <h1 class="text-center" >Rock, Paper, Scissors, Lizard, Spock</h1>
+                <p>This is a Flask version of Rock, Paper, Scissors, Lizard, Spock an experiment in usability, GUI and server-side programming efficiency</p>
+                <!--draw the game board -->
+                <div class="jumbotron shadow p-4 mb-4 bg-white jumbotron" align="center">
+                    <div>
+                        <p>You chose <b>{{ session['pc'] }}</b> | Computer chose <b>{{ session['cc'] }}</b></p>
+                        <p>Player Score <b>{{ session['player_score'] }}</b> | Computer Score <b>{{ session['computer_score'] }}</b></p>
+                    </div>
+                    <table>
+                        <tr>
+                            <th class="text-center">Rock</th>
+                            <th class="text-center">Paper</th>
+                            <th class="text-center">Scissors</th>
+                            <th class="text-center">Spock</th>
+                            <th class="text-center">Lizard</th>
+                        </tr>
+                        <tr class="player_button">
+                            {% for i in range(5) %}
+                            <td><a href="/game?pc={{i}}"><img width="100" src="static/images/{{i}}.png" class="border active btn-primary" data-toggle="tooltip"></a></td>
+                            {% endfor %}
+                        </tr>
+                    </table>
+                </div> <!-- end the jumbotron -->
+            </div> <!-- end the col -->
+        </div> <!-- end the row -->
+    </main>
+        {% if not session['gameon'] %}
+            <a class="btn btn-success btn-lg text-center" href="http://127.0.0.1:5000/game">New Game</a>
+        {% endif %}
+</div> <!-- end the container -->
+
+
+<!--Bootstrap javascript -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+</body>
+</html>

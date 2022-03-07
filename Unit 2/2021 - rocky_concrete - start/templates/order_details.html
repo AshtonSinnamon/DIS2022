@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block mainContent %}
+<h4>Results for {{od_results[0]['order_no']}} ordered on {{od_results[0]['order_date']}}</h4>
+
+<table class="table table-dark">
+    <tr>
+        <th>Product Code</th>
+        <th>Description</th>
+        <th>Order Quantity</th>
+        <th>Order Price</th>
+        <th style="text-align: right">Total</th>
+    </tr>
+    {% for row in od_results %}
+    <tr>
+        <td><a href="/product_details?pid={{row['prod_code']}}">{{row['prod_code']}}</a></td>
+        <td>{{row['description']}}</td>
+        <td>{{row['order_qty']}}</td>
+        <td>${{row['order_price']}}</td>
+        <td style="text-align: right">${{row['total']}}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td colspan="5" style="text-align: right; margin-right: auto"><strong>$</strong>{{order_total['total']}}</td>
+    </tr>
+</table>
+
+<p><a href="customer_details.html?cid={{cid}}">Go Back</a></p>
+{% endblock %}

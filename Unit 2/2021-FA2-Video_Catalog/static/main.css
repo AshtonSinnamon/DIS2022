@@ -1,0 +1,15 @@
+nav {
+  margin-bottom: 1em;
+}
+
+footer {
+  margin-top: 1em;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+      flex: 50%;
+}

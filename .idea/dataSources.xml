@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="people" uuid="2895188f-d670-4b30-adf3-f04aad7a5f1e">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\amans\OneDrive - St Pauls School\- Year 11\Digital Soloution\- python working folder\Unit 2\add_people_to_people\people.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="VideoProgram" uuid="6a5a97b7-52aa-4508-8260-80f984d4503f">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\amans\OneDrive - St Pauls School\- Year 11\Digital Soloution\- python working folder\Unit 2\2021-FA2-Video_Catalog\VideoProgram.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="signup" uuid="16a7348b-e363-4012-8d1c-88361f35ea10">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\amans\OneDrive - St Pauls School\- Year 11\Digital Soloution\- python working folder\Unit 2\signup\signup.db</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>

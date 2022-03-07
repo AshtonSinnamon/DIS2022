@@ -1,0 +1,31 @@
+--ST1
+select sum(order_price * order_qty) as 'Total Value'
+from order_details 
+where order_no = 1234;
+--ST2
+select max(cr_limit) as 'Smallest Credit', min(cr_limit) as 'Largest Credit'
+from customers;
+--ST3
+select max(cr_limit - curr_bal) as 'Largest Current Availabe'
+from customers;
+--ST4
+select max(curr_bal - cr_limit) as 'Max Over'
+from customers
+where curr_bal > cr_limit;
+--ST5
+select min(order_date)
+from orders;
+--ST6
+select max(order_date)
+from orders;
+--ST7
+select max(order_price * order_qty) as 'Best Price'
+from order_details
+where prod_code = 'LOO';
+--ST8
+select min(list_price * remake_qty) as 'Least Cost for Remake'
+from products
+where qty_on_hand <= remake_level;
+--ST9
+
+--ST10

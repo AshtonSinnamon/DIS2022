@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block mainContent %}
+<h4>Product Details</h4>
+<table>
+    <tr>
+        <th>Description</th>
+        <th>Product Group</th>
+        <th>List Price</th>
+        <th>Quantity on Hand</th>
+        <th>Remake Level</th>
+        <th>Remake Quantity</th>
+    </tr>
+    {% for row in products %}
+    <tr>
+        <td>{{row['description']}}</td>
+        <td>{{row['prod_code']}}</td>
+        <td>{{row['list_price']}}</td>
+        <td>{{row['qty_on_hand']}}</td>
+        <td>{{row['remake_level']}}</td>
+        <td>{{row['remake_qty']}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

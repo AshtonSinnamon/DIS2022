@@ -1,0 +1,11 @@
+{% extends 'layout.html' %}
+
+{% block mainContent %}
+<h2>Subjects</h2>
+{% if session['username'] %}
+    {% for class in session['subject'] %}
+        <p><b>{{ class }}</b></p>
+        <a href="/topics?subject={{ class }}"><p>{{ class }}</p></a>
+    {% endfor %}
+{% endif %}
+{% endblock %}

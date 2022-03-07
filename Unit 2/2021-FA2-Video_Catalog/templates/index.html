@@ -1,0 +1,67 @@
+{% extends 'layout.html' %}
+
+{% block mainContent %}
+<style>
+    .row {
+  display: flex;
+    }
+
+    .column {
+      flex: 50%;
+    }
+
+</style>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            {% for message in get_flashed_messages() %}
+                <div class="alert alert-warning">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+        <div class="row">
+            <div class="col">
+                <h2>Welcome to the Index page</h2>
+                {% if session['is_teacher'] %}
+                    <p>Teacher Account</p>
+                        <div class="row">
+                            <div class="column">
+                                <p><b>New Approvals</b></p>
+                                {% for data in session['newApprovals'] %}
+                                    <hr>
+                                    <p>{{data[0]}}, under the topic {{data[1]}}. {{data[2]}}. Submitted by {{data[3]}}</p>
+                                    <a href="/approval?approve=True&url={{data[2]}}">Approve</a>
+                                    <a href="/approval?denial=False&url={{data[2]}}">Reject</a>
+                                {% endfor %}
+                            </div>
+                            <div class="column">
+                                <p><b>Reports</b></p>
+                                {% for data in session['my_Reports']%}
+                                    <hr>
+                                    <p>VideoID {{data[1]}}, reported by {{data[0]}}</p>
+                                    <a href="/brokenLinks?remove={{data[1]}}">Remove</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                {% elif session['username'] %}
+                    <h3>New Featured Videos</h3>
+                    {% for data in session['featuredVideos'] %}
+
+                        <hr>
+                        <p><b>{{data[0]}}</b></p>
+                        <a href="{{data[1]}}">{{data[1]}}</a>
+                    {% endfor %}
+                {% else %}
+                    <p>Please Log-in using your school details to access features</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

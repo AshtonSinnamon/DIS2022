@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block mainContent %}
+<h2>Videos</h2>
+{% if session['username'] %}
+    {% for data in session['my_url'] %}
+        <p>{{data[1]}}</p>
+        <p><b><a href="{{data[0]}}">{{ data[0] }}</a></b></p>
+        <a href="/report?report={{data[2]}}" type="button" class="btn btn-danger">Report Broken URL for Video -> {{data[1]}}</a>
+    {% endfor %}
+    {% for ID in my_VideoID %}
+
+    {% endfor %}
+{% endif %}
+
+{% endblock %}
